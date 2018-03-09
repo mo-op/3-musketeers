@@ -7,6 +7,9 @@ const pkg = require('../package.json');
 const config = new Conf();
 
 updateNotifier({pkg}).notify();
+/**
+ *Update default currency. Ensure that length is more 2 & within our list of supported currencies.
+ */
 
 const saveCurrencies = argv => {
   config.set('defaultFrom', argv[1] || config.get('defaultFrom', 'USD'));
@@ -19,11 +22,17 @@ const saveCurrencies = argv => {
   console.log(chalk.green('Saved default currencies to ' + config.path));
   process.exit(1);
 };
+/**
+ * Returns version of the application.
+ */
 
 const version = () => {
   console.log(pkg.version);
   process.exit(1);
 };
+/**
+ * Returns usage instructions and he commands that the application can offer.
+ */
 
 const help = () => {
   console.log(`
