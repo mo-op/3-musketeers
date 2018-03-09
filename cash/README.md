@@ -1,5 +1,4 @@
 # cash
-# cash
 
 Cash is an open source currency management application that converts the given amount between currencies, from the command line. 
 
