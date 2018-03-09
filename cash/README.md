@@ -46,8 +46,7 @@ Through this application, you can also
 	 $ node bin/index.js --save usd eur pln aud
 
 	 $ node bin/index.js --help
-
-
+-get the version
 	$ node index.js --version 
 	1.0.0
 
