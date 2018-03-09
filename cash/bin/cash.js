@@ -7,6 +7,12 @@ const currencies = require('../lib/currencies.json');
 
 const API = 'https://api.fixer.io/latest';
 
+/**
+ * Represents. conversion-
+ * Check if currencies exist. If not, display an error.
+ * Prepare for conversion.
+ */
+
 const convert = configuration => {
   const {amount, to, from, response, loading} = configuration;
 
@@ -33,6 +39,9 @@ const convert = configuration => {
   );
   process.exit(1);
 };
+/**
+ * Find currencies and uppercase them.
+ */
 
 const cash = async command => {
   const amount = command.amount;
@@ -40,6 +49,9 @@ const cash = async command => {
   const to = command.to
     .filter(item => item !== from)
     .map(item => item.toUpperCase());
+/**
+ * Display the process of loading for an interval of 2 seconds
+ */
 
   console.log();
   const loading = ora({
@@ -52,6 +64,10 @@ const cash = async command => {
   });
 
   loading.start();
+
+  /**
+ * Call the conversion function and handle exceptions.
+ */
 
   try {
     const response = await got(API, {'json': true});
