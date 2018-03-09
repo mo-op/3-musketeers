@@ -9,7 +9,9 @@ const config = new Conf();
 const argv = process.argv.slice(2);
 
 helpers(argv);
-
+/**
+*Takes in command line arguments. The first argument is the amount, the second the currency and the optional third is the target currency.
+*/
 const command = {
   'amount': argv[0] || 1,
   'from': argv[1] || config.get('defaultFrom', 'USD'),
